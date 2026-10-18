@@ -1,6 +1,8 @@
 abstract class Produit (
-    val code: Int,
+    val code: String,
     var nom: String,
     var prixHT: Double,
     var stock: Int
-)
+) {
+    abstract fun prixTTC(): Double
+}
