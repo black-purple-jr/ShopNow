@@ -5,4 +5,13 @@ abstract class Produit (
     var stock: Int
 ) {
     abstract fun prixTTC(): Double
+
+    fun retirerStock(quantite : Int): Boolean {
+        if (this.stock >= quantite) {
+            stock -= quantite
+            return true
+        } else {
+            return false
+        }
+    }
 }

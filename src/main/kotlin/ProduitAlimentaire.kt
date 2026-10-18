@@ -8,8 +8,8 @@ class ProduitAlimentaire(
 ) : Produit(code, nom, prixHt, stock) {
 
     override fun prixTTC(): Double {
-        val tva: Double = 20.0
-        val ttc: Double = this.prixHT * (1 + tva)
+        val tva: Double = 10.0
+        val ttc: Double = this.prixHT * (1 + tva / 100)
 
         return ttc
     }
