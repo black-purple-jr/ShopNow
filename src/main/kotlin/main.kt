@@ -10,6 +10,7 @@ fun main() {
     for (p in catalogue) {
         println("${p.nom} : ${p.prixTTC()}")
     }
+
     // attendu :
     // Laptop : 6000.0
     // Riz : 22.0
@@ -17,5 +18,11 @@ fun main() {
     laptop.appliquerRemise(10.0)
     println(laptop.prixHT)
     println(laptop.prixTTC())
+
+    println(laptop.retirerStock(3))
+    println(laptop.stock)
+    laptop.ajouterStock(3)
+    println(laptop.stock)
+    println(laptop.retirerStock(50))
 
 }

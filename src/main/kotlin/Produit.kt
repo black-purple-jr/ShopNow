@@ -2,16 +2,23 @@ abstract class Produit (
     val code: String,
     var nom: String,
     var prixHT: Double,
-    var stock: Int
+    stock: Int
 ) {
+    var stock = stock
+        private set
+
     abstract fun prixTTC(): Double
 
     fun retirerStock(quantite : Int): Boolean {
-        if (this.stock >= quantite) {
+        if (stock < quantite) {
+            return false
+        } else {
             stock -= quantite
             return true
-        } else {
-            return false
         }
+    }
+
+    fun ajouterStock(quantite : Int) {
+
     }
 }
