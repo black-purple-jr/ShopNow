@@ -11,8 +11,8 @@ class Commande (
 
     fun montantTotal (): Double = produit.prixTTC() * quantiteComander
 
-    fun payer (): Boolean {
-        if (produit.retirerStock(quantiteComander) && statut == StatutDeCommande.CREATED) {
+    fun payer(): Boolean {
+        if (statut == StatutDeCommande.CREATED && produit.retirerStock(quantiteComander)) {
             statut = StatutDeCommande.PAID
             return true
         }
@@ -27,13 +27,11 @@ class Commande (
         return false
     }
 
-    fun annuler (): Boolean {
-        if (statut != StatutDeCommande.SHIPPED) {
-            statut = StatutDeCommande.CANCELLED
-            produit.ajouterStock(quantiteComander)
-            return true
-        }
-        return false
+    fun annuler(): Boolean {
+        if (statut == StatutDeCommande.SHIPPED) return false
+        if (statut == StatutDeCommande.PAID) produit.ajouterStock(quantiteComander)
+        statut = StatutDeCommande.CANCELLED
+        return true
     }
 
     // fonction crée pour le but de bien afficher les données dans le fichier text

@@ -134,13 +134,13 @@ fun main() {
     println("Montants : ${montants}")
 
     val superieureA1000 = commandes.filter { it.montantTotal() > 1000 }
-    println("Montants superieure a 1000 : ${superieureA1000}")
+        println("Montants superieure a 1000 : ${superieureA1000.map { it.montantTotal() }}")
 
     val triCroissant = commandes.sortedBy { it.montantTotal() }
-    println("Montants triee par ordre croissant : ${triCroissant}")
+    println("Montants triee par ordre croissant : ${triCroissant.map { it.montantTotal() }}")
 
     val triDecroissant = commandes.sortedByDescending { it.montantTotal() }
-    println("Montants triee par ordre decroissant : ${triDecroissant}")
+    println("Montants triee par ordre decroissant : ${triDecroissant.map { it.montantTotal() }}")
 
 
 
