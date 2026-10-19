@@ -25,4 +25,36 @@ fun main() {
     println(laptop.stock)
     println(laptop.retirerStock(50))
 
+
+    val sara = Client(2, "Sara", "Marrakech")
+    println(sara)
+
+    val c1 = Commande(101, "2026-10-10", sara, laptop, 2)
+
+    println(c1.statut)
+    println(c1.montantTotal())
+    println(c1.payer())
+    println(c1.statut)
+    println(laptop.stock)
+    println(c1.payer())
+    println(c1.expedier())
+    println(c1.statut)
+    println(c1.annuler())
+    println(c1.statut)
+
+    val c3 = Commande(103, "2026-10-12", sara, laptop, 3)
+    println(c3.payer())
+    println(laptop.stock)
+    println(c3.annuler())
+    println(laptop.stock)
+    println(c3.statut)
+
+    val c4 = Commande(104, "2026-10-13", sara, laptop, 1)
+    println(c4.annuler())
+    println(laptop.stock)
+
+    // jalon 4 sans aide
+
+    val cl1 = Client(2, "Hassan", "Rabat")
+
 }

@@ -19,6 +19,8 @@ abstract class Produit (
     }
 
     fun ajouterStock(quantite : Int) {
-
+        if (quantite >= 0) {
+            stock += quantite
+        }
     }
 }
