@@ -1,5 +1,9 @@
-class Client (
+data class Client (
     val id: Int,
-    var npm: String,
+    var nom: String,
     var ville: String
-)
+) {
+    override fun toString(): String {
+        return nom
+    }
+}

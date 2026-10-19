@@ -5,18 +5,21 @@ class ProduitElectronique(
     stock: Int,
     var dureeDeGaranti: Int
 
-) : Produit(code, nom, prixHt, stock) {
+) : Produit(code, nom, prixHt, stock), Remisable {
+
 
     override fun prixTTC(): Double {
         val tva: Double = 20.0
-        val ttc: Double = this.prixHT * (1 + tva / 100)
-
-        return ttc
+        return prixHT * (1 + tva / 100)
     }
 
-    fun appliquerRemise(pourcentage: Double) {
-        var prix: Double = 1.0
-        var remise: Double = prix * pourcentage / 100
-        this.prixHT = prix - remise
+    override fun appliquerRemise(pourcentage: Double) {
+        if (pourcentage in 0.0..100.0){
+            prixHT -= prixHT * pourcentage / 100.0
+        }
+    }
+
+    override fun toString(): String {
+        return nom
     }
 }
