@@ -4,18 +4,13 @@ fun main() {
     var laptop = ProduitElectronique("E1", "Laptop", 5000.0, 10, 24)
     val riz = ProduitAlimentaire("A1", "Riz", 20.0, 100, "2027-01-01")
 
-    println(laptop.prixTTC()) // attendu : 6000.0
-    println(riz.prixTTC()) // attendu : 22.0
+    println(laptop.prixTTC())
+    println(riz.prixTTC())
 
-    // Polymorphisme : une liste de Produit contenant des types différents
     val catalogue: List<Produit> = listOf(laptop, riz)
     for (p in catalogue) {
         println("${p.nom} : ${p.prixTTC()}")
     }
-
-    // attendu :
-    // Laptop : 6000.0
-    // Riz : 22.0
 
     laptop.appliquerRemise(10.0)
     println(laptop.prixHT)
@@ -26,7 +21,6 @@ fun main() {
     laptop.ajouterStock(3)
     println(laptop.stock)
     println(laptop.retirerStock(50))
-
 
     val sara = Client(2, "Sara", "Marrakech")
     println(sara)
@@ -133,6 +127,22 @@ fun main() {
     }
 
     println(jeuDeDonnee())
+
+    val clientsEtPrix: MutableSet<Commande> = mutableSetOf(cmd1, cmd4)
+    clientsEtPrix.forEach{ println("${it.client} : ${it.montantTotal()}") }
+
+    val montantEtCommande: MutableMap<Commande, Double> = mutableMapOf(
+        cmd1 to cmd1.montantTotal(),
+        cmd2 to cmd2.montantTotal(),
+        cmd3 to cmd3.montantTotal(),
+        cmd4 to cmd4.montantTotal(),
+        cmd5 to cmd5.montantTotal(),
+        cmd6 to cmd6.montantTotal(),
+    )
+
+    for (montant in montantEtCommande) {
+        println("${montant.key} : ${montant.value}")
+    }
 
 
 }

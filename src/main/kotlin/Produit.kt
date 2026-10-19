@@ -23,4 +23,8 @@ abstract class Produit (
             stock += quantite
         }
     }
+
+    override fun toString(): String {
+        return nom
+    }
 }
