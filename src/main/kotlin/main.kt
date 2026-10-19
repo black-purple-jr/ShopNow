@@ -126,23 +126,22 @@ fun main() {
         return listOf(c1, c2, c3, c4, c5, c6, c7, c8)
     }
 
-    println(jeuDeDonnee())
+    val commandes: List<Commande> = jeuDeDonnee()
 
-    val clientsEtPrix: MutableSet<Commande> = mutableSetOf(cmd1, cmd4)
-    clientsEtPrix.forEach{ println("${it.client} : ${it.montantTotal()}") }
+    commandes.forEach { print("${it.client.nom} : ${it.montantTotal()} | ") }
 
-    val montantEtCommande: MutableMap<Commande, Double> = mutableMapOf(
-        cmd1 to cmd1.montantTotal(),
-        cmd2 to cmd2.montantTotal(),
-        cmd3 to cmd3.montantTotal(),
-        cmd4 to cmd4.montantTotal(),
-        cmd5 to cmd5.montantTotal(),
-        cmd6 to cmd6.montantTotal(),
-    )
+    val montants = commandes.map { it.montantTotal() }
+    println("Montants : ${montants}")
 
-    for (montant in montantEtCommande) {
-        println("${montant.key} : ${montant.value}")
-    }
+    val superieureA1000 = commandes.filter { it.montantTotal() > 1000 }
+    println("Montants superieure a 1000 : ${superieureA1000}")
+
+    val triCroissant = commandes.sortedBy { it.montantTotal() }
+    println("Montants triee par ordre croissant : ${triCroissant}")
+
+    val triDecroissant = commandes.sortedByDescending { it.montantTotal() }
+    println("Montants triee par ordre decroissant : ${triDecroissant}")
+
 
 
 }

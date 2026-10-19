@@ -9,12 +9,7 @@ class Commande (
     var statut: StatutDeCommande = statut
         private set
 
-    fun montantTotal (): Double {
-        var total = 0.0
-        total = produit.prixTTC() * quantiteComander
-
-        return total
-    }
+    fun montantTotal (): Double = produit.prixTTC() * quantiteComander
 
     fun payer (): Boolean {
         if (produit.retirerStock(quantiteComander) && statut == StatutDeCommande.CREATED) {
@@ -44,6 +39,6 @@ class Commande (
     // fonction crée pour le but de bien afficher les données dans le fichier text
 
     override fun toString(): String {
-        return "Commande N${numero} pour ${quantiteComander} ${produit}(s) fait le ${date} pour ${client}"
+        return "Commande n${numero} pour ${quantiteComander} ${produit}(s) fait le ${date} pour ${client}"
     }
 }
