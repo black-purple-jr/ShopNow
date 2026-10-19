@@ -5,7 +5,7 @@ class ProduitElectronique(
     stock: Int,
     var dureeDeGaranti: Int
 
-) : Produit(code, nom, prixHt, stock) {
+) : Produit(code, nom, prixHt, stock), Remisable {
 
 
     override fun prixTTC(): Double {
@@ -13,8 +13,8 @@ class ProduitElectronique(
         return prixHT * (1 + tva / 100)
     }
 
-    fun appliquerRemise(pourcentage: Double) {
-        if (pourcentage > 100.0 || pourcentage < 0.0) {
+    override fun appliquerRemise(pourcentage: Double) {
+        if (pourcentage in 0.0..100.0){
             prixHT -= prixHT * pourcentage / 100.0
         }
     }
