@@ -1,2 +1,2 @@
-Commande@548c4f57
-Commande@1218025c
+Commande N1 pour 2 IPad(s) fait le 2026-10-01 pour Client(id=2, nom=Sara, ville=Marrakech)
+Commande N4 pour 4 IMac(s) fait le 2026-10-04 pour Client(id=2, nom=Sara, ville=Marrakech)

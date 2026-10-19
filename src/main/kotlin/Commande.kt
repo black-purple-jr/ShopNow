@@ -40,4 +40,10 @@ class Commande (
         }
         return false
     }
+
+    // fonction crée pour le but de bien afficher les données dans le fichier text
+
+    override fun toString(): String {
+        return "Commande N${numero} pour ${quantiteComander} ${produit}(s) fait le ${date} pour ${client}"
+    }
 }

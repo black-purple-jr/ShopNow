@@ -82,9 +82,8 @@ fun main() {
     println(c.statut == StatutDeCommande.PAID)
     println(StatutDeCommande.values().size)
 
-    fun ecrireHistorique(client: Client, commandes: List<Commande>) {
+    fun ecrireHistorique(client: Client, commandes: Collection<Commande>) {
         File("src/main/data/Client${client.id}.txt").writeText(commandes.joinToString("\n"))
-        // probleme
     }
 
     ecrireHistorique(sara, listOf(cmd1, cmd4))
@@ -134,4 +133,6 @@ fun main() {
     }
 
     println(jeuDeDonnee())
+
+
 }

@@ -49,7 +49,4 @@ class Boutique {
 
         return total
     }
-
-
-
 }

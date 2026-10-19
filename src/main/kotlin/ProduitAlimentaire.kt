@@ -13,4 +13,8 @@ class ProduitAlimentaire(
 
         return ttc
     }
+
+    override fun toString(): String {
+        return nom
+    }
 }

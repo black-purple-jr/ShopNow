@@ -18,4 +18,8 @@ class ProduitElectronique(
             prixHT -= prixHT * pourcentage / 100.0
         }
     }
+
+    override fun toString(): String {
+        return nom
+    }
 }
